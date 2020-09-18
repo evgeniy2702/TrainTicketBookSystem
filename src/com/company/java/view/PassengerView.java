@@ -77,7 +77,7 @@ public class PassengerView {
 //        }
 
             //получение значения id билета из ticket для поля passenger.idTicket
-            passenger.setIdTicket(Ticket.getId());
+           // passenger.setIdTicket(Ticket.getId());
 
             //сохраняет нового пасажира только если его passenger.idTicket уникальный
             passengerController.save(passenger);

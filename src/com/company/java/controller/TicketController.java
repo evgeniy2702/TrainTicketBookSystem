@@ -1,7 +1,7 @@
 package controller;
 
 
-import dao.TicketDAO;
+import dao.IO.TicketDAO;
 import model.Ticket;
 
 public class TicketController {

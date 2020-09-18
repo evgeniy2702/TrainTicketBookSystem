@@ -192,6 +192,7 @@ public class TicketView {
 
         //сохранение нового билета в базу данных
         ticketController.save(ticket);
+
     }
 
     public void findTicket () {

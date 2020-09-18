@@ -80,9 +80,7 @@ public class Locomotive extends NamedEntity {
                 "; вид топлива : " + fuelType.getString() + ".\n";
 
     }
-
-
-
+    
     public enum FuelType {
 
         DIESEL("ДИЗЕЛЬНАЯ ТЯГА"),
@@ -96,7 +94,6 @@ public class Locomotive extends NamedEntity {
 
         public String getString() {
             return string;
-
         }
     }
 }

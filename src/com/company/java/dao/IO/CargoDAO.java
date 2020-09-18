@@ -1,5 +1,6 @@
-package dao;
+package dao.IO;
 
+import dao.GenericDAO;
 import model.Cargo;
 
 import java.io.*;

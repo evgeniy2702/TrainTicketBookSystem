@@ -1,5 +1,6 @@
-package dao;
+package dao.IO;
 
+import dao.GenericDAO;
 import model.Passenger;
 import model.PassengerWagoon;
 import model.Ticket;
