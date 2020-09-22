@@ -1,9 +1,14 @@
 package model;
 
+import java.util.Set;
+
 public class Passenger extends BaseEntity {
     String firstNamePassenger; // имя пассажира
     String secondNamePassenger; // фамилия пассажира
     Long idTicket; // id билета
+
+    Set<Ticket>tickets;
+
 
     // конструктор без параметров
     public Passenger() {
@@ -39,6 +44,9 @@ public class Passenger extends BaseEntity {
     }
 
     public void setIdTicket(Long idTicket) {
+        String str = null;
+
+
         this.idTicket = idTicket;
     }
 

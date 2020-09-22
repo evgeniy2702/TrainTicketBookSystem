@@ -9,13 +9,24 @@ public class Locomotive extends NamedEntity {
     public Locomotive() {
     }
 
-    public Locomotive(int capacityLocomotive, int powerLocomotive, int yearIssueLocomotive, FuelType fuelType) {
+    public Locomotive(Long id, String name, int capacityLocomotive, int powerLocomotive, int yearIssueLocomotive, FuelType fuelType) {
+        super(id, name);
         this.capacityLocomotive = capacityLocomotive;
         this.powerLocomotive = powerLocomotive;
         this.yearIssueLocomotive = yearIssueLocomotive;
         this.fuelType = fuelType;
     }
-
+    public Locomotive(Long id, String name, int capacityLocomotive, int powerLocomotive, int yearIssueLocomotive, String fuelType) {
+        super(id, name);
+        this.capacityLocomotive = capacityLocomotive;
+        this.powerLocomotive = powerLocomotive;
+        this.yearIssueLocomotive = yearIssueLocomotive;
+        if(fuelType.equalsIgnoreCase("DIESEL")){
+            this.fuelType = FuelType.DIESEL;
+        }else if(fuelType.equalsIgnoreCase("ELECTRICITY")){
+            this.fuelType = FuelType.ELECTRICITY;
+        }
+    }
 
     public int getCapacityLocomotive() {
         return capacityLocomotive;
@@ -49,7 +60,9 @@ public class Locomotive extends NamedEntity {
         this.fuelType = fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+
+
+    public void setFuelType(String fuelType){
         if(fuelType.equalsIgnoreCase("DIESEL")){
             this.fuelType = FuelType.DIESEL;
         }else if(fuelType.equalsIgnoreCase("ELECTRICITY")){
@@ -59,18 +72,28 @@ public class Locomotive extends NamedEntity {
 
     @Override
     public String toString() {
-        return "Locomotive{" +
-                ", capacityLocomotive=" + capacityLocomotive +
-                ", powerLocomotive=" + powerLocomotive +
-                ", yearIssueLocomotive=" + yearIssueLocomotive +
-                ", fuelType=" + fuelType +
-                '}'+"\n";
+
+        return "№ поезда : " + getId() + " ; Название поезда: "+ getName() +
+                " ; кол-во вагонов : " + capacityLocomotive + " шт " +
+                "; мощность : " + powerLocomotive + " кВт " +
+                "; год выпуска : " + yearIssueLocomotive + " г " +
+                "; вид топлива : " + fuelType.getString() + ".\n";
+
     }
-
-
-
+    
     public enum FuelType {
-        DIESEL,
-        ELECTRICITY
+
+        DIESEL("ДИЗЕЛЬНАЯ ТЯГА"),
+        ELECTRICITY("ЭЛЕТРОТЯГА");
+
+        String string;
+
+        FuelType(String string) {
+            this.string = string;
+        }
+
+        public String getString() {
+            return string;
+        }
     }
 }

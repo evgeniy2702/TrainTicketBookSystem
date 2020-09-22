@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -8,25 +9,29 @@ import java.util.Date;
 
 public class Ticket {
 
-    private String name;                                // Имя пассажира
-    private String surname;                             // Фамилия пассажира
+//    private String name;                                // Имя пассажира
+//    private String surname;                             // Фамилия пассажира
+    private Long id;
     private PassengerWagoon.TypeWagoon typeWagoon;      // Тип вагона
     private Date dateArrival;                           // Дата прибытия
     private Date dateDeparture;                         // Дата отправления
     private boolean bed;                                // Постель
     private TeaCoffee drink;                            // Напитки, которые пассажиру положены по билету
     private Luggage baggage;                            // Багаж, который берет с собой пассажир
+    Passenger passenger;
 
     // Конструктор
     public Ticket() {
+        passenger = new Passenger();
+        new SimpleDateFormat();
     }
 
     // Конструктор с параметрами
 
-    public Ticket(String name, String surname, PassengerWagoon.TypeWagoon typeWagoon, Date dateArrival,
+    public Ticket(Long id, PassengerWagoon.TypeWagoon typeWagoon, Date dateArrival,
                   Date dateDeparture, boolean bed, TeaCoffee drink, Luggage baggage) {
-        this.name = name;
-        this.surname = surname;
+        passenger = new Passenger();
+        this.id = id;
         this.typeWagoon = typeWagoon;
         this.dateArrival = dateArrival;
         this.dateDeparture = dateDeparture;
@@ -36,20 +41,14 @@ public class Ticket {
     }
 
     // Геттеры и сеттеры на параметры класса Ticket
-    public String getName() {
-        return name;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public PassengerWagoon.TypeWagoon getTypeWagoon() {
@@ -76,7 +75,7 @@ public class Ticket {
         this.dateDeparture = dateDeparture;
     }
 
-    public boolean bed() {
+    public boolean getBed() {
         return bed;
     }
 
@@ -113,9 +112,10 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Билет выдан на : \n" +
-                "Фамилия : " + surname + "\n" +
-                "Имя : " + name + "\n" +
+        return  "id = " + id +"\n" +
+                "Билет выдан на : \n" +
+                "Фамилия : " + passenger.getFirstNamePassenger() + "\n" +
+                "Имя : " + passenger.getSecondNamePassenger() + "\n" +
                 "Вагон : " + typeWagoon + "\n" +
                 "Отправление : " + dateDeparture + "\n" +
                 "Прибытие : " + dateArrival + "\n" +
